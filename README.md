@@ -1,6 +1,6 @@
-# simple_ios_app
+# Costco Clearance - IOS 
 
-A new Flutter project.
+A new Flutter project for the client
 
 ## Getting Started
 
