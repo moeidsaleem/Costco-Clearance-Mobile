@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:simple_ios_app/components/camera.dart';
+import 'package:simple_ios_app/components/facebookLogin.dart';
 
 class AddProductPage extends StatelessWidget {
 
@@ -24,7 +25,12 @@ class AddProductPage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CameraComponent(cameras: this.cameras),
+                builder: (context) {
+                  if(this.cameras.length > 0) {
+                    return CameraComponent(cameras: this.cameras);
+                  }
+                  return FacebookLoginComponent();
+                },
               ),
             );
           },

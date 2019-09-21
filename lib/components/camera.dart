@@ -5,8 +5,6 @@ import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 import 'package:camera/camera.dart';
 
-List<CameraDescription> cameras;
-
 class CameraComponent extends StatefulWidget {
   final List<CameraDescription> cameras;
   const CameraComponent({

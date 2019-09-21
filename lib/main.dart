@@ -1,11 +1,20 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:simple_ios_app/pages/addProduct.dart';
 
+void logError(String code, String message) =>
+    print('Error: $code\nError Message: $message');
+
 List<CameraDescription> cameras;
 
 Future<void> main() async {
-  cameras = await availableCameras();
+  try {
+    cameras = await availableCameras();
+  } on CameraException catch (e) {
+    logError(e.code, e.description);
+  }
   runApp(MyApp());
 }
 
