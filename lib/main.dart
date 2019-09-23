@@ -1,22 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
-import 'package:simple_ios_app/pages/addProduct.dart';
+import 'package:simple_ios_app/pages/login.dart';
 
-void logError(String code, String message) =>
-    print('Error: $code\nError Message: $message');
-
-List<CameraDescription> cameras;
-
-Future<void> main() async {
-  try {
-    cameras = await availableCameras();
-  } on CameraException catch (e) {
-    logError(e.code, e.description);
-  }
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -38,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: AddProductPage(cameras),
+      home: LoginPage(),
     );
   }
 }
