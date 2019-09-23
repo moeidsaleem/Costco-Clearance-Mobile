@@ -12,9 +12,9 @@ class FacebookLoginComponent extends StatelessWidget {
   void initiateFacebookLogin(BuildContext context) async {
     FacebookLoginResult facebookLoginResult =
         await facebookLogin.logInWithReadPermissions(['email']);
-
     switch (facebookLoginResult.status) {
       case FacebookLoginStatus.error:
+      print(facebookLoginResult.errorMessage);
         // show error
         // onLoginStatusChanged(false);
         break;
@@ -39,6 +39,12 @@ class FacebookLoginComponent extends StatelessWidget {
         // onLoginStatusChanged(true, profileData: profile);
         break;
     }
+    Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AddOrderDetailComponent({}),
+          ),
+        );
   }
 
   @override
